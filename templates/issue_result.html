@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ваш Migrant ID</title>
+    <style>
+        body { font-family: Arial, sans-serif; display: flex; flex-direction: column; align-items: center; padding-top: 50px; background-color: #e9ecef; }
+        .container { width: 80%; max-width: 600px; padding: 30px; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.15); background-color: white; text-align: center; }
+        h1 { color: #28a745; margin-bottom: 20px; }
+        .qr-area { padding: 20px; border: 2px solid #28a745; border-radius: 8px; display: inline-block; margin-bottom: 20px; }
+        img { display: block; margin: 0 auto; max-width: 250px; height: auto; }
+        .token-area input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            font-family: monospace; /* Моноширинный шрифт для токена */
+            cursor: text; /* Чтобы курсор показывал, что текст можно выделить */
+        }
+        .copy-button {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 6px;
+            width: 100%;
+            margin-top: 15px;
+            text-align: center;
+            display: block;
+        }
+        .token-area strong { display: block; margin-bottom: 5px; color: #555; }
+        .expiry { color: #dc3545; margin-top: 10px; font-weight: bold; }
+        .message { color: #007bff; margin-top: 15px; }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>Ваш Цифровой Пропуск</h1>
+    <p class="message">Сохраните этот QR-код (сделайте скриншот). Он действителен 30 дней.</p>
+
+    <div class="qr-area">
+        <img src="{{.QRCodeImageURL}}" alt="QR Code">
+    </div>
+
+    <div class="token-area">
+        <strong>Код для ручной проверки:</strong>
+        <input
+                type="text"
+                value="{{.Token}}"
+                readonly
+                title="Полный JWT Токен"
+        >
+    </div>
+
+    <p class="expiry">Действителен до: {{.ExpiresAt}}</p>
+
+    <p style="margin-top: 25px;"><a href="/issue">Получить новый ID</a> | <a href="/">Проверить статус</a></p>
+</div>
+
+</body>
+</html>

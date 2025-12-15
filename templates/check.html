@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Migrant ID | Проверка статуса</title>
+    <style>
+        body { font-family: Arial, sans-serif; display: flex; flex-direction: column; align-items: center; padding-top: 50px; }
+        .container { width: 80%; max-width: 500px; padding: 20px; border: 1px solid #ccc; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+        h1 { color: #333; }
+        input[type="text"] { width: 100%; padding: 10px; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px; box-sizing: border-box; }
+        input[type="submit"] { background-color: #007bff; color: white; padding: 10px 15px; border: none; border-radius: 4px; cursor: pointer; width: 100%; }
+        input[type="submit"]:hover { background-color: #0056b3; }
+        /* Место для JS-сканера в реальном проекте */
+        .scanner-placeholder { height: 200px; background-color: #f0f0f0; border: 1px dashed #aaa; display: flex; align-items: center; justify-content: center; margin-bottom: 20px; }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>🔍 Сервис проверки ID</h1>
+    <div class="scanner-placeholder">
+        [Виджет сканера QR-кода в реальном приложении]
+    </div>
+    <form method="GET" action="/check/result">
+        <label for="token">Ввести токен вручную:</label>
+        <input type="text" id="token" name="token" placeholder="Введите криптографический JWT-токен" required>
+        <input type="submit" value="ПРОВЕРИТЬ СТАТУС">
+    </form>
+    <div style="margin-top: 20px; text-align: center;">
+        <a href="/issue" style="display: inline-block; background-color: #28a745; color: white; padding: 10px 20px; text-decoration: none; border-radius: 4px; font-weight: bold;">Создать новый ID</a>
+    </div>
+</div>
+</body>
+</html>
